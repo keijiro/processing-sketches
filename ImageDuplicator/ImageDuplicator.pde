@@ -1,15 +1,20 @@
-String loadPath = selectInput("Select a png file.");
-if (loadPath == null) exit();
+int i = 0;
 
-String savePath = selectOutput("Save processed files.");
-if (savePath == null) exit();
-
-for (int i = 1; i <= 64; i++) {
-  PImage img;
-  img = loadImage(loadPath);
-  img.resize(img.width * i / 64, img.height * i / 64);
-  img.save(savePath + "." + i + ".png");
+void setup() {
+  size(1024, 1024);
 }
 
-exit();
+void draw()
+{
+  background(255);
+  fill(0);
+
+  textSize(512);
+  textAlign(CENTER, CENTER);
+
+  if (frameCount < 600) {
+    text(str(frameCount), 0, 0, width, height);
+    saveFrame("tex####.png");
+  }
+}
 
